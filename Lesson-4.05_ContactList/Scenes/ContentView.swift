@@ -10,16 +10,19 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var contacts: [Person]
+    var persons = DataManager.getPersons()
 
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(items) { item in
+                ForEach(persons) { person in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text("\(person.name)")
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text(
+                            person.fullName
+                            )
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -40,16 +43,20 @@ struct ContentView: View {
     }
 
     private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
+//        withAnimation {
+//            let newContact = Person(
+//                name: <#T##String#>,
+//                surname: <#T##String#>,
+//                phoneNumber: <#T##String#>,
+//                email: <#T##String#>))
+//            modelContext.insert(newItem)
+//        }
     }
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(contacts[index])
             }
         }
     }
@@ -57,5 +64,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Person.self, inMemory: true)
 }
