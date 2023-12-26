@@ -23,7 +23,7 @@ struct Lesson_4_05_ContactListApp: App {
                 configurations: [modelConfiguration]
             )
         } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+            fatalError("\(Constants.containerError) \(error)")
         }
     }()
 

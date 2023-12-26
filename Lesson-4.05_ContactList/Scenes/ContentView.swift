@@ -14,31 +14,34 @@ struct ContentView: View {
     var persons = DataManager.getPersons()
 
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
                 ForEach(persons) { person in
                     NavigationLink {
                         Text("\(person.name)")
                     } label: {
-                        Text(
-                            person.fullName
-                            )
+                        Text(person.fullName)
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
+            .listStyle(.plain)
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem {
                     Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                        Label(
+                            Constants.addItemLabel,
+                            systemImage: Constants.plusButton
+                        )
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
+            
+            .navigationTitle(Constants.navTitile)
         }
     }
 
