@@ -18,7 +18,7 @@ final class DataManager {
     
     // MARK: - Public methods
     
-    class func getPersons() -> [Person] {
+    func getPersons() -> [Person] {
         var contactList: [Person] = []
         
         let names = DataStore.shared.names.shuffled()

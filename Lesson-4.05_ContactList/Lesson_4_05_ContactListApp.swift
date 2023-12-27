@@ -29,7 +29,7 @@ struct Lesson_4_05_ContactListApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
         .modelContainer(sharedModelContainer)
     }
