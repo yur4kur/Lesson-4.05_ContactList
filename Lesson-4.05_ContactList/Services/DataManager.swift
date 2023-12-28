@@ -5,12 +5,19 @@
 //  Created by Юрий Куринной on 27.07.2023.
 //
 
+import SwiftUI
+import SwiftData
+
 // MARK: - DataManager
 final class DataManager {
     
     // MARK: - Public properties
     
     static let shared = DataManager()
+    
+    // MARK: - Private wrapped properties
+    
+    @Environment(\.modelContext) private var modelContext
     
     // MARK: - Initializers
     
@@ -43,5 +50,20 @@ final class DataManager {
         }
         
         return contactList
+    }
+    
+    private func addPerson(person: Person) {
+        withAnimation {
+            let newContact = person
+            modelContext.insert(newContact)
+        }
+    }
+
+    private func deletePersons(contacts: [Person], offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(contacts[index])
+            }
+        }
     }
 }

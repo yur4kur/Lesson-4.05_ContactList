@@ -7,21 +7,23 @@
 
 import SwiftUI
 
+// MARK: - ContactsView
+
 struct ContactsView: View {
-    @Environment(\.modelContext) private var modelContext
-    let persons: [Person]
+   
+    // MARK: - Public properties
+    
+    let contacts: [Person]
     let action: () -> Void
     //private let action2:  Optional<(IndexSet) -> Void>
+    
+    // MARK: - Body
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(persons) { person in
-                    NavigationLink {
-                        Text("\(person.name)")
-                    } label: {
-                        Text(person.fullName)
-                    }
+                ForEach(contacts) { contact in
+                    ContactLinkView(contact: contact)
                 }
                 //.onDelete(perform: action2)
             }
@@ -47,5 +49,5 @@ struct ContactsView: View {
 }
 
 #Preview {
-    ContactsView(persons: [], action: {})
+    ContactsView(contacts: [], action: {})
 }
