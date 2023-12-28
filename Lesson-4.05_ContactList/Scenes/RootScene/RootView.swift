@@ -9,24 +9,23 @@ import SwiftUI
 import SwiftData
 
 // MARK: - RootView
+
 struct RootView: View {
     
-    // MARK: - Wrapped properties
+    // MARK: - Private properties
     
-    @Environment(\.modelContext) private var modelContext
-    @Query private var contacts: [Person]
-    var persons = DataManager.shared.getPersons()
+    @StateObject private var rootViewVodel = RootViewModel()
     
-    // MARK: Body
+    // MARK: - Body
     
     var body: some View {
         TabView {
-            ContactsView(contacts: persons, action: addItem)
+            ContactsView(persons: $rootViewVodel.persons)
                 .tabItem {
                     Image(systemName: Constants.firstTabImage)
                     Text(Constants.firstTabText)
                 }
-            NumbersView()
+            NumbersView(persons: $rootViewVodel.persons)
                 .tabItem {
                     Image(systemName: Constants.secondTabImage)
                     Text(Constants.secondTabText)
@@ -39,9 +38,6 @@ struct RootView: View {
 
 #Preview {
     RootView()
-        .modelContainer(for: Person.self, inMemory: true)
+        .modelContainer(for: Contact.self, inMemory: true)
 }
- // MARK: - Extensions
-extension RootView {
-    func addItem(){}
-}
+

@@ -13,15 +13,15 @@ struct ContactLinkView: View {
     
     // MARK: Public properties
     
-    let contact: Person
+    let person: Person
     
     // MARK: - Body
     
     var body: some View {
         NavigationLink {
-            DetailsView(person: contact)
+            DetailsView(person: person)
         } label: {
-            Text(contact.fullName)
+            Text(person.fullName)
         }
     }
 }
@@ -29,9 +29,10 @@ struct ContactLinkView: View {
 // MARK: - Preview
 
 #Preview {
-    ContactLinkView(contact: Person(
+    ContactLinkView(person: Person(
         name: Constants.mockName,
         surname: Constants.mockSurname,
         phoneNumber: Constants.mockPhone,
-        email: Constants.mockEmail))
+        email: Constants.mockEmail
+    ))
 }

@@ -13,7 +13,7 @@ final class DataStore {
     
     static let shared = DataStore()
     
-    // MARK: Names
+    // MARK: - Names
     
     let names = [
         "Leanne",
@@ -28,7 +28,7 @@ final class DataStore {
         "Clementina"
     ]
     
-    // MARK: Surnames
+    // MARK: - Surnames
     
     let surnames = [
         "DuBuque",
@@ -43,7 +43,7 @@ final class DataStore {
         "Graham"
     ]
     
-    // MARK: Phone numbers
+    // MARK: - Phone numbers
     
     let phoneNumbers = [
         "1-770-736-8031",
@@ -58,7 +58,7 @@ final class DataStore {
         "1-024-648-3804"
     ]
     
-    // MARK: Email addresses
+    // MARK: - E-mail addresses
     
     let emails = [
         "Rey.Padberg@karina.biz",

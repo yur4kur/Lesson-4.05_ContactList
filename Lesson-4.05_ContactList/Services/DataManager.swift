@@ -9,16 +9,13 @@ import SwiftUI
 import SwiftData
 
 // MARK: - DataManager
+
 final class DataManager {
     
     // MARK: - Public properties
     
     static let shared = DataManager()
-    
-    // MARK: - Private wrapped properties
-    
-    @Environment(\.modelContext) private var modelContext
-    
+
     // MARK: - Initializers
     
     private init () {}
@@ -46,24 +43,9 @@ final class DataManager {
                 name: names[index],
                 surname: surnames[index],
                 phoneNumber: phones[index],
-                email: emails[index]))
+                email: emails[index])
+            )
         }
-        
         return contactList
-    }
-    
-    private func addPerson(person: Person) {
-        withAnimation {
-            let newContact = person
-            modelContext.insert(newContact)
-        }
-    }
-
-    private func deletePersons(contacts: [Person], offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(contacts[index])
-            }
-        }
     }
 }

@@ -12,9 +12,11 @@ import SwiftUI
 struct DetailsView: View {
     
     // MARK: - Public properties
+    
     let person: Person
     
     // MARK: - Body
+    
     var body: some View {
         NavigationStack {
             List {

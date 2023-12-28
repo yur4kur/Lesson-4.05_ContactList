@@ -5,31 +5,42 @@
 //  Created by Юрий Куринной on 26.12.2023.
 //
 
+// MARK: - Constants
+
 enum Constants {
     
-    /// App
+    // MARK: - App
+    
     static let containerError = "Could not create ModelContainer: "
     static let emptyString = ""
     
-    /// RootView
+    // MARK: - RootView
+    
     static let firstTabImage = "person.2.fill"
     static let firstTabText = "Contacts"
     static let secondTabImage = "phone.fill"
     static let secondTabText = "Numbers"
     
-    /// ContactsView
+    // MARK: - ContactsView
+    
     static let addItemLabel = "Add Item"
     static let plusButton = "plus"
-    static let navTitile = "Contacts"
+    static let contactsTitle = "Contacts"
     
-    /// ContactLinkView
+    // MARK: - ContactLinkView
+    
     static let mockName = "Ivan"
     static let mockSurname = "Petrov"
     static let mockPhone = "0000"
     static let mockEmail = "ivan@mail.com"
     
-    /// DetailsView
+    // MARK: - DetailsView
+    
     static let personImage = "person.fill"
     static let phoneImage = "phone"
     static let trayImage = "tray"
+    
+    // MARK: - NumbersView
+    
+    static let numbersTitle = "Contact List"
 }

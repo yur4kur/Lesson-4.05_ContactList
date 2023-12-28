@@ -1,19 +1,15 @@
 //
-//  Person.swift
+//  Item.swift
 //  Lesson-4.05_ContactList
 //
-//  Created by Юрий Куринной on 28.12.2023.
+//  Created by Юрий Куринной on 26.12.2023.
 //
 
 import Foundation
+import SwiftData
 
-// MARK: - Person
-
-struct Person: Identifiable {
-    
-    // MARK: - Public properties
-    
-    let id = UUID()
+@Model
+final class Contact {
     let name: String
     let surname: String
     let phoneNumber: String
@@ -23,8 +19,6 @@ struct Person: Identifiable {
         "\(name) \(surname)"
     }
 
-    // MARK: - Initializers
-    
     init(name: String, surname: String, phoneNumber: String, email: String) {
         self.name = name
         self.surname = surname
@@ -32,3 +26,6 @@ struct Person: Identifiable {
         self.email = email
     }
 }
+
+
+
