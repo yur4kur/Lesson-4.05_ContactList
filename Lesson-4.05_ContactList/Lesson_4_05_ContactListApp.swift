@@ -10,6 +10,9 @@ import SwiftData
 
 @main
 struct Lesson_4_05_ContactListApp: App {
+    
+    // MARK: - SwiftData Container
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Contact.self])
         let modelConfiguration = ModelConfiguration(
@@ -27,6 +30,8 @@ struct Lesson_4_05_ContactListApp: App {
         }
     }()
 
+    // MARK: - Body
+    
     var body: some Scene {
         WindowGroup {
             RootView()
