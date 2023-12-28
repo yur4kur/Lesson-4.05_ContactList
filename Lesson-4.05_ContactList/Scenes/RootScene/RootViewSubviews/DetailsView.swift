@@ -18,9 +18,13 @@ struct DetailsView: View {
     var body: some View {
         NavigationStack {
             List {
+                HStack {
+                    Spacer()
                     PersonImageView()
-                    Label(person.phoneNumber, systemImage: Constants.phoneImage)
-                    Label(person.email, systemImage: Constants.trayImage)
+                    Spacer()
+                }
+                Label(person.phoneNumber, systemImage: Constants.phoneImage)
+                Label(person.email, systemImage: Constants.trayImage)
             }
             .navigationTitle(person.fullName)
         }

@@ -8,9 +8,11 @@
 import SwiftUI
 
 // MARK: - PersonImageView
+
 struct PersonImageView: View {
     
     // MARK: Body
+    
     var body: some View {
         Image(systemName: Constants.personImage)
             .resizable()
@@ -19,6 +21,7 @@ struct PersonImageView: View {
 }
 
 // MARK: - Preview
+
 #Preview {
     PersonImageView()
 }
